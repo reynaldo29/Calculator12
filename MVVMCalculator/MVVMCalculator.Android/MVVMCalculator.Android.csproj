@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -88,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MVVMCalculator\MVVMCalculator.csproj">
-      <Project>{752BE3D5-77BA-433C-A06B-F0485E6086CA}</Project>
+      <Project>{12FC8311-3BF7-4AE9-B06C-4A820ECE848C}</Project>
       <Name>MVVMCalculator</Name>
     </ProjectReference>
   </ItemGroup>

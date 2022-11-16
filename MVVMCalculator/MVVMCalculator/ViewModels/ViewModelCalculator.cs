@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace MVVMCalculator.ViewModels
 {
@@ -56,6 +57,8 @@ namespace MVVMCalculator.ViewModels
 		}
 
         #endregion
+        public ICommand OnSelectOperator { protected set; get; }
+        public ICommand OnCalculator { protected set; get; }
         public ICommand OnSelectNumber { protected set; get; }
         public ICommand OnClear { protected set; get; }
 
@@ -100,6 +103,28 @@ namespace MVVMCalculator.ViewModels
 					   }
 				   }
 			   });
+
+            OnSelectOperator = new Command<string>(
+                execute: (string parameter) =>
+                {
+
+                    currentState = -2;
+                    string pressed = parameter;
+                    mathOperator = pressed;
+                });
+
+            OnCalculator = new Command(() =>
+            {
+                if (currentState == 2)
+                {
+                    var result = SimpleCalculator.Calculate(firstNumber, secondNumber, mathOperator);
+
+                    Result = result.ToString("N0");
+                    firstNumber = result;
+                    currentState = -1;
+                }
+            }
+            );
 
         }
 
